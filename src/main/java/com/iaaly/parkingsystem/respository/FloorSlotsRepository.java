@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FLoorSlotsRepository extends CrudRepository<PKFloorSlots, Long> {
+public interface FloorSlotsRepository extends CrudRepository<PKFloorSlots, Long> {
 }
