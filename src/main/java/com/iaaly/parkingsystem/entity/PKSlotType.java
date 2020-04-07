@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 /**
@@ -34,4 +31,8 @@ public class PKSlotType {
     private String key;
 
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "pricing_policy_attributes_id")
+    private PKPricingPolicyAttributes pricingPolicyAttributes;
 }

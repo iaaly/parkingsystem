@@ -17,22 +17,11 @@ public class BillingServiceImpl implements BillingService {
         PKSlotType slotType = ticket.getSlot().getSlotType();
 
         long millis = checkout.getTime() - checkin.getTime();
-        BigDecimal hours = BigDecimal.valueOf(millis / 3600000);
+        long hours = millis / 3600000;
 
-        BigDecimal hourlyRate = BigDecimal.valueOf(3);
-        BigDecimal fixedRate;
-        switch (slotType.getKey()) {
-            case "B":
-                fixedRate = BigDecimal.valueOf(5);
-                break;
-            case "C":
-                fixedRate = BigDecimal.valueOf(10);
-                break;
-            default:
-                fixedRate = BigDecimal.ZERO;
-                break;
-        }
+        double hourlyRate = slotType.getPricingPolicyAttributes().getHourlyRate();
+        double fixedRate = slotType.getPricingPolicyAttributes().getHourlyRate();
 
-        return fixedRate.add(hourlyRate.multiply(hours));
+        return BigDecimal.valueOf(fixedRate + hourlyRate * hours);
     }
 }
