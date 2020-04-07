@@ -1,5 +1,6 @@
 package com.iaaly.parkingsystem.service.impl;
 
+import com.iaaly.parkingsystem.config.AppConfig;
 import com.iaaly.parkingsystem.entity.PKBill;
 import com.iaaly.parkingsystem.entity.PKCar;
 import com.iaaly.parkingsystem.entity.PKSlot;
@@ -18,6 +19,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class ParkingServiceImpl implements ParkingService {
+
     private final CarRepository carRepository;
     private final SlotRepository slotRepository;
     private final TicketRepository ticketRepository;
@@ -116,7 +118,7 @@ public class ParkingServiceImpl implements ParkingService {
 
         PKBill bill = PKBill.builder()
                 .amount(amount)
-                .currency("EUR")
+                .currency(AppConfig.SYSTEM_CURRENCY)
                 .refNo(UUID.randomUUID().toString())
                 .build();
         return billRepository.save(bill);
