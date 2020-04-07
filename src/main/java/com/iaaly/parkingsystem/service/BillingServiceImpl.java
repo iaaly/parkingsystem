@@ -17,10 +17,11 @@ public class BillingServiceImpl implements BillingService {
         PKSlotType slotType = ticket.getSlot().getSlotType();
 
         long millis = checkout.getTime() - checkin.getTime();
-        long hours = millis / 3600000;
+        // Round the calculation to the nearest hour
+        long hours = Math.round((double)millis / 3600000);
 
         double hourlyRate = slotType.getPricingPolicyAttributes().getHourlyRate();
-        double fixedRate = slotType.getPricingPolicyAttributes().getHourlyRate();
+        double fixedRate = slotType.getPricingPolicyAttributes().getFixedRate();
 
         return BigDecimal.valueOf(fixedRate + hourlyRate * hours);
     }
