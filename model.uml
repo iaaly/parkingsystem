@@ -1,62 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>DATABASE</ID>
-  <OriginalElement>79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.SCHEMA:PARKING3_DB.PUBLIC</OriginalElement>
+  <OriginalElement>79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.SCHEMA:parking3_db.PUBLIC</OriginalElement>
   <nodes>
-    <node x="422.0" y="11.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.cars</node>
-    <node x="257.0" y="146.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slots</node>
-    <node x="483.25" y="358.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.tickets</node>
-    <node x="604.25" y="157.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.bills</node>
-    <node x="0.0" y="0.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slot_types</node>
-    <node x="9.0" y="168.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floor_slots</node>
-    <node x="230.0" y="11.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floors</node>
+    <node x="514.25" y="314.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slots</node>
+    <node x="487.25" y="168.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floors</node>
+    <node x="505.75" y="526.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.tickets</node>
+    <node x="679.25" y="168.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.cars</node>
+    <node x="0.0" y="325.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.bills</node>
+    <node x="232.25" y="0.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.pricing_policy_attributes</node>
+    <node x="186.25" y="146.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slot_types</node>
+    <node x="213.0" y="336.0">79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floor_slots</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.cars">
-      <point x="68.0" y="-81.0" />
-      <point x="427.0" y="126.0" />
-      <point x="479.25" y="126.0" />
-      <point x="-57.25" y="37.0" />
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slots">
+      <point x="0.0" y="-81.0" />
+      <point x="0.0" y="81.0" />
     </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floors">
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floors">
       <point x="0.0" y="-81.0" />
       <point x="43.0" y="37.0" />
     </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slot_types">
-      <point x="-68.0" y="-81.0" />
-      <point x="291.0" y="116.0" />
-      <point x="157.5" y="116.0" />
-      <point x="52.5" y="48.0" />
-    </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.bills">
-      <point x="73.66666666666669" y="-81.0" />
-      <point x="667.4166666666667" y="333.0" />
-      <point x="700.75" y="333.0" />
-      <point x="0.0" y="70.0" />
-    </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floor_slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slot_types">
-      <point x="-43.5" y="-59.0" />
-      <point x="-52.5" y="48.0" />
-    </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.cars">
-      <point x="0.0" y="-81.0" />
-      <point x="57.25" y="37.0" />
-    </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floor_slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.floors">
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floor_slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floors">
       <point x="43.5" y="-59.0" />
-      <point x="139.5" y="126.0" />
-      <point x="273.0" y="126.0" />
+      <point x="343.5" y="294.0" />
+      <point x="530.25" y="294.0" />
       <point x="-43.0" y="37.0" />
     </edge>
-    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:PARKING3_DB.PUBLIC.slots">
-      <point x="-73.66666666666669" y="-81.0" />
-      <point x="520.0833333333333" y="333.0" />
-      <point x="359.0" y="333.0" />
-      <point x="0.0" y="81.0" />
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.cars">
+      <point x="68.0" y="-81.0" />
+      <point x="684.25" y="294.0" />
+      <point x="736.5" y="294.0" />
+      <point x="-57.25" y="37.0" />
+    </edge>
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.bills">
+      <point x="-73.66666666666674" y="-81.0" />
+      <point x="542.5833333333333" y="501.0" />
+      <point x="96.5" y="501.0" />
+      <point x="0.0" y="70.0" />
+    </edge>
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.floor_slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slot_types">
+      <point x="-43.5" y="-59.0" />
+      <point x="-70.25" y="59.0" />
+    </edge>
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.tickets" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.cars">
+      <point x="73.66666666666663" y="-81.0" />
+      <point x="689.9166666666666" y="501.0" />
+      <point x="851.0" y="501.0" />
+      <point x="57.25" y="37.0" />
+    </edge>
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slot_types" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.pricing_policy_attributes">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slots" target="79d5484b-e4dc-48d8-a8d4-0081ae7bafb8.TABLE:parking3_db.PUBLIC.slot_types">
+      <point x="-68.0" y="-81.0" />
+      <point x="548.25" y="284.0" />
+      <point x="397.0" y="284.0" />
+      <point x="70.25" y="59.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="399.0" y="260.0" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="454.5" y="344.0" />
   <SelectedNodes />
   <Categories>
     <Category>Key columns</Category>
