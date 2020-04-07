@@ -28,8 +28,13 @@ To connect to the DB you can use the h2-console running at: http://localhost:808
 
 **Note**: Check the model diagram `model.pdf` in the root directory of the project to better understand the DB sturcture
 
-## Sample Data
-To add sample Data you can run the `initializeSampleParking()` test method in `com.iaaly.parkingsystem.ParkingSystemApplicationTests`
+## System Setup
+The app supports creating a parking system with multiple floors and multiple parking slot types.
+For every slot type you can define a pricing policy.
+
+Please refer to the sample code for initializing the demo project with 3 floors and 3 slot types.
+
+To initialize the sample data, please run the `initializeSampleParking()` test method in `com.iaaly.parkingsystem.ParkingSystemApplicationTests`
 
 
 ## Copyright
