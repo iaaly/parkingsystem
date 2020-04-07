@@ -32,4 +32,7 @@ public class PKTicket {
     @JoinColumn(name = "bill_id")
     @ManyToOne
     private PKBill bill;
+
+    @Transient
+    private String instructions;
 }

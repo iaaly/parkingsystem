@@ -18,11 +18,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class ParkingServiceImpl implements ParkingService {
-    private final SlotTypeRepository slotTypeRepository;
     private final CarRepository carRepository;
     private final SlotRepository slotRepository;
-    private final FloorRepository floorRepository;
-    private final FloorSlotsRepository fLoorSlotsRepository;
     private final TicketRepository ticketRepository;
     private final BillRepository billRepository;
 
@@ -37,11 +34,8 @@ public class ParkingServiceImpl implements ParkingService {
                               TicketRepository ticketRepository,
                               BillRepository billRepository,
                               BillingService billingService) {
-        this.slotTypeRepository = slotTypeRepository;
         this.carRepository = carRepository;
         this.slotRepository = slotRepository;
-        this.floorRepository = floorRepository;
-        this.fLoorSlotsRepository = fLoorSlotsRepository;
         this.ticketRepository = ticketRepository;
         this.billRepository = billRepository;
         this.billingService = billingService;
@@ -49,25 +43,38 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Override
     public Optional<PKTicket> bookSlot(String slotTypeKey, String carPlateNumber) {
+        // Initialize a ticket holder
         AtomicReference<Optional<PKTicket>> ticketHolder = new AtomicReference<>(Optional.empty());
+        // Find the first available slot to book
         Optional<PKSlot> slot = slotRepository.findFirstByOccupiedAndSlotType_KeyOrderByFloorAsc(false, slotTypeKey);
         slot.ifPresent(pkSlot -> {
+            // Generate customer ticket
             PKCar pkCar = registerCar(pkSlot, carPlateNumber);
             PKTicket pkTicket = registerTicket(pkSlot, pkCar);
             ticketHolder.set(Optional.of(pkTicket));
         });
+        // Return ticket
         return ticketHolder.get();
     }
 
     @Override
     public Optional<PKBill> clearSlot(long ticketId) {
+        // Initialize a bill holder
         AtomicReference<Optional<PKBill>> billHolder = new AtomicReference<>(Optional.empty());
+        // Find the ticket to bill
         Optional<PKTicket> ticket = ticketRepository.findById(ticketId);
         ticket.ifPresent(pkTicket -> {
-            pkTicket.setCheckoutTime(new Date());
-            PKBill bill = generateBill(pkTicket);
-            billHolder.set(Optional.ofNullable(bill));
+            // Validate that the ticket wasn't already paid
+            if (pkTicket.getCheckoutTime() == null) {
+                pkTicket.setCheckoutTime(new Date());
+                // Generate the bill
+                PKBill bill = generateBill(pkTicket);
+                billHolder.set(Optional.of(bill));
+                // Update ticket Checkout date and mark it as paid
+                ticketRepository.save(pkTicket);
+            }
         });
+        // Return bill
         return billHolder.get();
     }
 
@@ -77,6 +84,14 @@ public class ParkingServiceImpl implements ParkingService {
                 .checkinTime(new Date())
                 .slot(pkSlot)
                 .build();
+
+        String friendlyInstructions = String.format("Your slot is at floor %s, number %s. Car plate number: %s",
+                pkTicket.getSlot().getFloor().getName(),
+                pkTicket.getSlot().getIdentifier(),
+                pkTicket.getSlot().getCustomerCar().getPlateNumber());
+
+        pkTicket.setInstructions(friendlyInstructions);
+
         return ticketRepository.save(pkTicket);
     }
 
